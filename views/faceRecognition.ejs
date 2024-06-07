@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Face Recognition</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script defer src="/face-api.js"></script>
+  <script defer src="/faceRecognition.js"></script>
+</head>
+<body>
+  <h1>Face Recognition</h1>
+  <button id="startButton">Start Face Recognition</button>
+
+
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span id="closeButton" class="close">&times;</span>
+      <video id="video" width="720" height="560" autoplay muted></video>
+      <canvas id="overlay" width="720" height="560"></canvas>
+    </div>
+  </div>
+</body>
+</html>
