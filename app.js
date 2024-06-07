@@ -85,6 +85,7 @@ app.post("/register", async (req, res) => {
     try {
         const result = await database.registerUser(firstName, lastName, email, password);
         if (result) {
+            await sendWelcomeEmail(email, firstName);
             res.redirect('/login');
         } else {
             res.status(400).send('User already exists');
