@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   
     async function loadLabeledImages() {
-      const labels = ['person1']; // Заміни на ваші мітки
+      const labels = ['person1'];
       return Promise.all(
         labels.map(async label => {
           const descriptions = [];

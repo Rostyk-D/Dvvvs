@@ -95,7 +95,7 @@ async function findUserByEmail(email) {
 async function registerGoogleUser(profile) {
   try {
     const { givenName, familyName, emails } = profile;
-    const email = emails[0].value; // Assuming the first email is the primary one
+    const email = emails[0].value;
 
     const existingUser = await findUserByEmail(email);
     if (existingUser) {

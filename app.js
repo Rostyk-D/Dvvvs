@@ -7,6 +7,7 @@ const authRoutes = require('./routes/auth-routes');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const indexRoutes = require('./routes/index');
+const nodemailer = require('nodemailer');
 
 dotenv.config();
 
@@ -43,6 +44,30 @@ app.use('/', indexRoutes);
 app.get('/', (req, res) => {
     res.render('morok');
 });
+
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'hitori931@gmail.com',
+      pass: 'v f r u s c f k o l f q s n c z'
+    }
+  });
+  
+  async function sendWelcomeEmail(email, first_name) {
+    const mailOptions = {
+      from: 'hitori931@gmail.com',
+      to: email,
+      subject: 'Ласкаво просимо до нашого сервісу',
+      text: `Привіт ${first_name},\n\nЛаскаво просимо до нашого сервісу! Ми раді вітати вас.\n\nЗ найкращими побажаннями,\nВаша Компанія`
+    };
+  
+    try {
+      await transporter.sendMail(mailOptions);
+      console.log('Вітальний лист надіслано на:', email);
+    } catch (error) {
+      console.error('Помилка при надсиланні вітального листа:', error);
+    }
+  }
 
 const faceRouter = require('./routes/face');
 app.use('/face', faceRouter);

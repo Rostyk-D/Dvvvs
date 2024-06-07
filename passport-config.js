@@ -1,4 +1,4 @@
-// passport-config.js
+
 const LocalStrategy = require('passport-local').Strategy;
 const database = require('./bace/DataBace');
 const passport = require('passport');
